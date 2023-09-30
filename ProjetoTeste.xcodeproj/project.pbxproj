@@ -11,7 +11,7 @@
 		9E750BC92ABA344C00BC3B46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E750BC62ABA344C00BC3B46 /* LaunchScreen.storyboard */; };
 		BA7A978E2A794CF2005F349F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A978D2A794CF2005F349F /* AppDelegate.swift */; };
 		BA7A97902A794CF2005F349F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A978F2A794CF2005F349F /* SceneDelegate.swift */; };
-		BA7A97922A794CF2005F349F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A97912A794CF2005F349F /* ViewController.swift */; };
+		BA7A97922A794CF2005F349F /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A97912A794CF2005F349F /* TaskViewController.swift */; };
 		BA7A97972A794CFA005F349F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA7A97962A794CFA005F349F /* Assets.xcassets */; };
 		BA7A97A52A794CFA005F349F /* ProjetoTesteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A97A42A794CFA005F349F /* ProjetoTesteTests.swift */; };
 		BA7A97AF2A794CFA005F349F /* ProjetoTesteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A97AE2A794CFA005F349F /* ProjetoTesteUITests.swift */; };
@@ -43,7 +43,7 @@
 		BA7A978A2A794CF2005F349F /* ProjetoTeste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetoTeste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA7A978D2A794CF2005F349F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA7A978F2A794CF2005F349F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BA7A97912A794CF2005F349F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BA7A97912A794CF2005F349F /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		BA7A97962A794CFA005F349F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA7A979B2A794CFA005F349F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA7A97A02A794CFA005F349F /* ProjetoTesteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjetoTesteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,7 +105,7 @@
 			children = (
 				BA7A978D2A794CF2005F349F /* AppDelegate.swift */,
 				BA7A978F2A794CF2005F349F /* SceneDelegate.swift */,
-				BA7A97912A794CF2005F349F /* ViewController.swift */,
+				BA7A97912A794CF2005F349F /* TaskViewController.swift */,
 				BA7A97C72A79A6CF005F349F /* TaskTableViewCell.swift */,
 				BA7A97BD2A794D90005F349F /* TaskManager.swift */,
 				9E750BC62ABA344C00BC3B46 /* LaunchScreen.storyboard */,
@@ -264,7 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA7A97922A794CF2005F349F /* ViewController.swift in Sources */,
+				BA7A97922A794CF2005F349F /* TaskViewController.swift in Sources */,
 				BA7A978E2A794CF2005F349F /* AppDelegate.swift in Sources */,
 				BA7A97C82A79A6D0005F349F /* TaskTableViewCell.swift in Sources */,
 				BA7A97BE2A794D91005F349F /* TaskManager.swift in Sources */,

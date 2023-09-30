@@ -12,18 +12,18 @@ class TaskManager {
     private let tasksKey = "tasksKey"
 
     /// Adiciona uma nova tarefa na lista
-    func addTask(title: String, description: String) {
+    public func addTask(title: String, description: String) {
         let task = Task(title: title, description: description, createdAt: Date())
         tasks.append(task)
     }
 
     /// Informa a lista atual de tarefas
-    func getTasks() -> [Task] {
+    public func getTasks() -> [Task] {
         return tasks
     }
 
     /// Salva a lista de tarefas
-    func saveTasks() {
+    public func saveTasks() {
             let encoder = JSONEncoder()
             if let encodedTasks = try? encoder.encode(tasks) {
                 UserDefaults.standard.set(encodedTasks, forKey: tasksKey)
@@ -31,7 +31,7 @@ class TaskManager {
         }
 
     /// Recupera as tarefas salvas
-    func loadTasks() {
+    public func loadTasks() {
         //TODO: criar a implementação real
         createDefaultTasks()
         }
@@ -43,6 +43,15 @@ class TaskManager {
             let task3 = Task(title: "Atividade física", description: "Corrida, musculação ou tirar um cochilo na rede", createdAt: Date())
             tasks = [task1, task2, task3]
         }
+    
+    public func deleteTask(at index: Int) {
+        guard index >= 0, (tasks.count != 0) else {
+            return
+        }
+        
+        tasks.remove(at: index)
+        saveTasks()
+    }
 }
 
 struct Task: Codable {
