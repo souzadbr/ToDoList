@@ -109,6 +109,14 @@
 			path = DetailsTask;
 			sourceTree = "<group>";
 		};
+		6AEC1C0C2AC8B2A4009A1B15 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				BA7A97BD2A794D90005F349F /* TaskManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		BA7A97812A794CF2005F349F = {
 			isa = PBXGroup;
 			children = (
@@ -135,9 +143,9 @@
 				6AEC1C092AC8ACF5009A1B15 /* DetailsTask */,
 				6AEC1C062AC85968009A1B15 /* NewTask */,
 				6AEC1C052AC85953009A1B15 /* TaskList */,
+				6AEC1C0C2AC8B2A4009A1B15 /* Manager */,
 				BA7A978D2A794CF2005F349F /* AppDelegate.swift */,
 				BA7A978F2A794CF2005F349F /* SceneDelegate.swift */,
-				BA7A97BD2A794D90005F349F /* TaskManager.swift */,
 				9E750BC62ABA344C00BC3B46 /* LaunchScreen.storyboard */,
 				9E750BC42ABA344C00BC3B46 /* Main.storyboard */,
 				BA7A97962A794CFA005F349F /* Assets.xcassets */,

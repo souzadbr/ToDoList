@@ -13,7 +13,7 @@ protocol NewTaskViewControllerDelegate: AnyObject {
 }
 
 class NewTaskViewController: UIViewController {
-   
+    
     var task: Task?
     weak var delegate: NewTaskViewControllerDelegate?
     
@@ -28,14 +28,25 @@ class NewTaskViewController: UIViewController {
         super.viewDidLoad()
         
     }
-   
+    
     @IBAction func salveButtonPressed(_ sender: Any) {
         addTask()
     }
     
     public func addTask() {
-        let newTask = Task(title: titleTextField.text ?? "deu errado", description:  descriptionTextField.text ?? "deu errado", createdAt: datePicker.date)
-      
+        
+        guard let title = titleTextField.text, !title.isEmpty,
+              let description = descriptionTextField.text, !description.isEmpty else {
+            // Exiba um alerta informando que os campos estão vazios
+            let alertController = UIAlertController(title: "Campos Vazios", message: "Preencha todos os campos antes de adicionar a tarefa.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
+            return
+        }
+        
+        let newTask = Task(title: title, description: description, createdAt: datePicker.date)
+        
         delegate?.newTaskViewController(self, add: newTask)
         self.dismiss(animated: true)
     }
