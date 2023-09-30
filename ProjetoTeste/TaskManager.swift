@@ -7,13 +7,12 @@ import Foundation
 
 class TaskManager {
 
-    private var tasks: [Task] = []
+    private var tasks: [Task] = [] 
 
     private let tasksKey = "tasksKey"
 
     /// Adiciona uma nova tarefa na lista
-    public func addTask(title: String, description: String) {
-        let task = Task(title: title, description: description, createdAt: Date())
+    public func addTask(task: Task) {
         tasks.append(task)
     }
 
