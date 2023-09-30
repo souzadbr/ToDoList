@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="86O-zk-G77">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Lista de Tarefas-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ProjetoTeste" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Dxh-8Z-bP5">
+                                <rect key="frame" x="12" y="131" width="366" height="659"/>
+                                <color key="backgroundColor" name="BgColor"/>
+                                <color key="separatorColor" name="AccentColor"/>
+                                <color key="sectionIndexBackgroundColor" name="BgColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" id="BgR-Nb-CKG" customClass="TaskTableViewCell" customModule="ProjetoTeste" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="366" height="49.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BgR-Nb-CKG" id="tgu-gI-KuZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="366" height="49.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hC-7O-7ZE">
+                                                    <rect key="frame" x="24" y="17.999999999999886" width="310" height="21.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <color key="textColor" name="TitleColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0hC-7O-7ZE" firstAttribute="top" secondItem="tgu-gI-KuZ" secondAttribute="topMargin" constant="4" id="3SI-kA-VUZ"/>
+                                                <constraint firstItem="0hC-7O-7ZE" firstAttribute="leading" secondItem="tgu-gI-KuZ" secondAttribute="leadingMargin" constant="4" id="CEq-MT-rdr"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="0hC-7O-7ZE" secondAttribute="trailing" constant="12" id="bLe-oQ-47L"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0hC-7O-7ZE" secondAttribute="bottom" constant="4" id="c7J-Hm-z5D"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="BgColor"/>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="0hC-7O-7ZE" id="5UH-KR-rSE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="WJt-G3-LuR"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="nV5-qg-Ttp"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="BgColor"/>
+                        <constraints>
+                            <constraint firstItem="Dxh-8Z-bP5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="KGL-r1-Cax"/>
+                            <constraint firstItem="Dxh-8Z-bP5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="PdE-B9-i5z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dxh-8Z-bP5" secondAttribute="bottom" constant="20" id="duf-c5-7xT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dxh-8Z-bP5" secondAttribute="trailing" constant="12" id="zeO-ju-759"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Lista de Tarefas" id="LWk-FB-lmN"/>
+                    <connections>
+                        <outlet property="tableView" destination="Dxh-8Z-bP5" id="4t3-8b-8l2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="843.07692307692309" y="-28.436018957345969"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YQa-8g-cvE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="86O-zk-G77" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jGQ-Tj-qKl">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="AccentColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="TitleColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="b6b-im-5z8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sGf-T7-FNA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-86.153846153846146" y="-28.436018957345969"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="1" green="0.72966543362460823" blue="0.84422355359685763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="BgColor">
+            <color red="0.94904471574370397" green="0.95501355043391589" blue="0.94307588105349194" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="TitleColor">
+            <color red="0.31499999761581421" green="0.089000001549720764" blue="0.14100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
