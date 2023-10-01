@@ -7,59 +7,46 @@
 
 import UIKit
 
-protocol DetailTaskViewControllerDelegate: AnyObject {
-    
-    func detailTaskViewController( _ controller: DetailTaskViewController, view index: Int)
-}
 
 class DetailTaskViewController: UIViewController {
     
-    var taskTitle: String?
-    var taskDescription: String?
-    var taskDate: Date?
+    private enum segues: String {
+        case seeEditTask = "EditTaskViewController"
+    }
+    
     var task: Task?
-    
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var descriptionTextField: UITextField!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    
     
     @IBAction func backViewButtonPressed(_ sender: Any) {
         
         navigationController?.popViewController(animated: true)
     }
-    weak var delegate: DetailTaskViewControllerDelegate?
     
-    override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           
-           // Atualize as informações da tarefa na tela
-           updateTaskInfo(title: taskTitle, description: taskDescription, date: taskDate)
-       }
+    @IBAction func editButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "EditTaskViewController", sender: self)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        getInfoDetailTask()
-    }
-    
-    public func getInfoDetailTask() {
-        
-        // Certifique-se de que taskDate é uma Date
-        if let taskDate = taskDate {
-                datePicker.date = taskDate
-            }
-        
-        titleTextField.text = taskTitle
-        descriptionTextField.text = taskDescription
         
     }
     
-    // Função para atualizar as informações da tarefa na tela
-        func updateTaskInfo(title: String?, description: String?, date: Date?) {
-            // Atualize os campos com as novas informações
-            titleTextField.text = title
-            descriptionTextField.text = description
-            datePicker.date = date ?? Date() // Use a nova data se fornecida, caso contrário, use a data atual
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let segueId = segue.identifier,
+              let segueEsperada = DetailTaskViewController.segues(rawValue: segueId) else { return }
+        
+        switch segueEsperada {
+            
+        case .seeEditTask:
+            prepareForEditTask(segue, sender)
         }
+    }
+    
+    private func prepareForEditTask( _ segue: UIStoryboardSegue, _ sender: Any?) {
+        guard let controllerDestination = segue.destination as? EditTaskViewController else {
+            fatalError("Não é possivel encontrar \(segue.destination)")
+        }
+        
+        controllerDestination.task = task
+    }
 }

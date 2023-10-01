@@ -37,21 +37,13 @@ class TaskViewController: UIViewController {
     }
     
     private func prepareForDetailTask( _ segue: UIStoryboardSegue, _ sender: Any?) {
-        if segue.identifier == "SeeDetailTaskSegue",
-               let selectedIndexPath = taskListTableView.indexPathForSelectedRow,
-               let detailViewController = segue.destination as? DetailTaskViewController {
-                
-                // Obtenha a tarefa selecionada
-                let selectedTask = taskManager.getTasks()[selectedIndexPath.row]
-                
-                // Configure as informações da tarefa na tela de detalhes
-                detailViewController.taskTitle = selectedTask.title
-                detailViewController.taskDescription = selectedTask.description
-                detailViewController.taskDate = selectedTask.createdAt
-                
-                // Defina o delegate para receber atualizações, se necessário
-                detailViewController.delegate = self
-            }
+        guard let cell = sender as? TaskTableViewCell,
+              let controllerDestionation = segue.destination as? DetailTaskViewController else {
+            fatalError("Não é possivel encontrar \(segue.destination)")
+        }
+       
+        controllerDestionation.task = cell.task
+        
     }
     
     @IBAction func trashTaskhButtonPressed(_ sender: Any) {
@@ -97,7 +89,7 @@ extension TaskViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Ao selecionar uma célula, dispare o segue para exibir detalhes
-        performSegue(withIdentifier: "ShowDetailTaskSegue", sender: tableView.cellForRow(at: indexPath))
+        performSegue(withIdentifier: "DetailTaskViewController", sender: tableView.cellForRow(at: indexPath))
     }
 }
 
@@ -109,9 +101,25 @@ extension TaskViewController: NewTaskViewControllerDelegate {
     }
 }
 
-extension TaskViewController: DetailTaskViewControllerDelegate {
-    
-    func detailTaskViewController( _ controller: DetailTaskViewController, view index: Int) {
-        taskManager.loadTasks()
-    }
-}
+//extension TaskViewController: DetailTaskViewControllerDelegate {
+//
+//    func detailTaskViewController(_ controller: DetailTaskViewController, view index: Int) {
+//        if let task = taskManager.task(at: index) {
+//            showDetail(for: task)
+//        } else {
+//            // Trate o caso em que a task não pode ser recuperada
+//            print("Task não encontrada para o índice \(index)")
+//        }
+//    }
+//
+//    private func showDetail(for task: Task) {
+//        // Crie uma instância da tela de detalhe e configure-a com a task
+//        let detailViewController = DetailTaskViewController()
+//        detailViewController.task = task
+//        detailViewController.delegate = self
+//
+//        // Apresente a tela de detalhe
+//        let navController = UINavigationController(rootViewController: detailViewController)
+//        present(navController, animated: true, completion: nil)
+//    }
+//}

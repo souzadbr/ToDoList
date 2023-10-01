@@ -19,9 +19,7 @@ class NewTaskViewController: UIViewController {
     
     
     @IBOutlet weak var titleTextField: UITextField!
-    
     @IBOutlet weak var descriptionTextField: UITextField!
-    
     @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {

@@ -51,6 +51,15 @@ class TaskManager {
         tasks.remove(at: index)
         saveTasks()
     }
+    
+    // Retorna a tarefa com base no índice fornecido
+    func task(at index: Int) -> Task? {
+        guard index >= 0, index < tasks.count else {
+            return nil
+        }
+        return tasks[index]
+    }
+    
 }
 
 struct Task: Codable {
