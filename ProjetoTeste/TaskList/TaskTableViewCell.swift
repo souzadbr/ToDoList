@@ -19,7 +19,11 @@ class TaskTableViewCell: UITableViewCell {
             
             titleLabel.text = task.title
             descriptionLabel.text = task.description
-            datePicker.date = task.createdAt
+            if let createdAt = task.createdAt {
+                datePicker.date = createdAt
+            } else {
+                print("Data inválida")
+            }
         }
     }
 }
